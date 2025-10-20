@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT Helps</title>
+<style>
+  body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg,#4e54c8,#8f94fb);
+    color:#fff;
+    text-align:center;
+    margin:0;
+    padding:0;
+  }
+  header{
+    background:rgba(0,0,0,0.3);
+    padding:10px 0;
+    font-size:20px;
+    font-weight:bold;
+  }
+  .container{
+    margin-top:50px;
+  }
+  button{
+    background:#fff;
+    color:#333;
+    border:none;
+    padding:12px 25px;
+    margin:10px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  button:hover{
+    background:#eee;
+  }
+  .selected{
+    background:#ffeb3b;
+  }
+  textarea{
+    width:80%;
+    height:120px;
+    border:none;
+    border-radius:8px;
+    padding:10px;
+    font-size:14px;
+    resize:none;
+    margin-top:20px;
+  }
+  input{
+    width:80%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    margin-top:15px;
+  }
+  #sendBtn{
+    margin-top:25px;
+    background:#00ffcc;
+  }
+  .modal{
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+  }
+  .modal-content{
+    background:#fff;
+    color:#333;
+    padding:20px;
+    border-radius:10px;
+    width:85%;
+    max-width:400px;
+    text-align:center;
+  }
+  .modal-content h3{
+    color:#4e54c8;
+  }
+</style>
+</head>
+<body>
+<header>
+  স্বত: আল হাসিব<br>©2025 ICT Helps
+</header>
+
+<div class="container">
+  <h2>Select Your Platform</h2>
+  <button id="androidBtn">Android</button>
+  <button id="windowsBtn">Windows</button><br>
+
+  <input type="email" id="userEmail" placeholder="Enter your Gmail address"><br>
+  <textarea id="problem" placeholder="Describe your problem here..."></textarea><br>
+  <button id="sendBtn">Send</button>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button onclick="modal.style.display='none'">OK</button>
+  </div>
+</div>
+
+<script>
+const androidBtn=document.getElementById('androidBtn');
+const windowsBtn=document.getElementById('windowsBtn');
+const sendBtn=document.getElementById('sendBtn');
+const userEmail=document.getElementById('userEmail');
+const problem=document.getElementById('problem');
+const modal=document.getElementById('modal');
+const modalTitle=document.getElementById('modalTitle');
+const modalText=document.getElementById('modalText');
+
+let selectedPlatform='';
+
+androidBtn.addEventListener('click',()=>{
+  selectedPlatform='Android';
+  androidBtn.classList.add('selected');
+  windowsBtn.classList.remove('selected');
+});
+
+windowsBtn.addEventListener('click',()=>{
+  selectedPlatform='Windows';
+  windowsBtn.classList.add('selected');
+  androidBtn.classList.remove('selected');
+});
+
+function isValidEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+sendBtn.addEventListener('click',()=>{
+  if(!selectedPlatform){alert('প্রথমে Android বা Windows সিলেক্ট করুন');return;}
+  if(!isValidEmail(userEmail.value)){alert('সঠিক একটি ইমেইল ঠিকানা দিন');return;}
+  if(!problem.value.trim()){alert('সমস্যার বর্ণনা দিন');return;}
+
+  const to='alh370116@gmail.com';
+  const subject=`ICT Helps - ${selectedPlatform} Problem`;
+  const body=`From: ${userEmail.value}\nPlatform: ${selectedPlatform}\n\nProblem Details:\n${problem.value}`;
+
+  const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const gmailUrl=`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mailtoUrl=`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  if(isMobile){
+    window.location.href=mailtoUrl;
+  }else{
+    window.open(gmailUrl,'_blank');
+  }
+
+  // Show success message after opening Gmail
+  modalTitle.textContent='Your problem has been submitted!';
+  modalText.textContent='Check your Gmail mailbox after few moments. It may delay for heavy traffic. Stay with us.';
+  modal.style.display='flex';
+});
+</script>
+</body>
+</html>
