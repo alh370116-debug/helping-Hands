@@ -90,11 +90,11 @@
 </header>
 
 <div class="container">
-  <h2>Select Your Platform</h2>
+  <h2>Please,Select Your Platform</h2>
   <button id="androidBtn">Android</button>
   <button id="windowsBtn">Windows</button><br>
 
-  <input type="email" id="userEmail" placeholder="Enter your Gmail address"><br>
+  <input type="email" id="userEmail" placeholder="Enter your valid Gmail address"><br>
   <textarea id="problem" placeholder="Describe your problem here..."></textarea><br>
   <button id="sendBtn">Send</button>
 </div>
@@ -156,10 +156,11 @@ sendBtn.addEventListener('click',()=>{
 
   // Show success message after opening Gmail
   modalTitle.textContent='Your problem has been submitted!';
-  modalText.textContent='Check your Gmail mailbox after few moments. It may delay for heavy traffic. Stay with us.';
+  modalText.textContent='Check your Gmail mailbox after few moments.Your Solution Will Be Sent On Your Gmail.It may delay for heavy traffic. Stay with us.';
   modal.style.display='flex';
 });
 </script>
 </body>
 
 </html>
+
