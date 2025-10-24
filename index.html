@@ -6,28 +6,61 @@
 <title>ICT Helps</title>
 <style>
   body{
-    font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #000000, #001f3f, #000000);
-  background-size: 300% 300%;
-  animation: gradientMove 6s ease infinite;
-  color: #fff;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: radial-gradient(circle at top left, #001f3f, #000000 60%);
+  background-size: 400% 400%;
+  animation: gradientFlow 10s ease-in-out infinite;
+  color: #e0e6ed;
   text-align: center;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Animation for live gradient effect */
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* smooth background movement */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+/* glowing text header */
+header {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #00bfff;
+  text-shadow: 0 0 10px rgba(0,191,255,0.8);
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* glowing button style */
+button {
+  background: linear-gradient(90deg, #00bfff, #007bff);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  margin: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0,191,255,0.6);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #007bff, #00bfff);
+  box-shadow: 0 0 25px rgba(0,191,255,1);
+  transform: scale(1.05);
+}
+
   
   header{
     background:rgba(0,0,0,0.3);
@@ -179,5 +212,6 @@ sendBtn.addEventListener('click',()=>{
 </body>
 
 </html>
+
 
 
