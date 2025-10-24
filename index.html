@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ICT Helps</title>
 <style>
-  body{
+ body {
   font-family: 'Poppins', Arial, sans-serif;
-  background: radial-gradient(circle at top left, #001f3f, #000000 60%);
-  background-size: 400% 400%;
-  animation: gradientFlow 10s ease-in-out infinite;
+  background: url('img/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: #e0e6ed;
   text-align: center;
   margin: 0;
@@ -19,30 +18,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-/* smooth background movement */
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  backdrop-filter: brightness(0.8) saturate(1.2);
 }
 
 /* glowing text header */
 header {
   background: rgba(0, 0, 0, 0.4);
   padding: 15px 0;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   color: #00bfff;
-  text-shadow: 0 0 10px rgba(0,191,255,0.8);
-  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(0,191,255,1);
+  letter-spacing: 1.5px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+  text-transform: uppercase;
 }
 
-/* glowing button style */
+/* futuristic glowing button */
 button {
-  background: linear-gradient(90deg, #00bfff, #007bff);
+  background: linear-gradient(90deg, #6a00ff, #00bfff);
   color: white;
   border: none;
   padding: 12px 30px;
@@ -51,15 +46,16 @@ button {
   font-weight: 600;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(0,191,255,0.6);
+  box-shadow: 0 0 20px rgba(0,191,255,0.8);
   transition: all 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(90deg, #007bff, #00bfff);
-  box-shadow: 0 0 25px rgba(0,191,255,1);
-  transform: scale(1.05);
+  background: linear-gradient(90deg, #00bfff, #6a00ff);
+  box-shadow: 0 0 35px rgba(0,191,255,1);
+  transform: scale(1.08);
 }
+
 
   
   header{
@@ -90,11 +86,11 @@ button:hover {
   }
   textarea{
     width:80%;
-    height:120px;
+    height:125px;
     border:none;
     border-radius:8px;
     padding:10px;
-    font-size:14px;
+    font-size:15px;
     resize:none;
     margin-top:20px;
   }
@@ -212,6 +208,7 @@ sendBtn.addEventListener('click',()=>{
 </body>
 
 </html>
+
 
 
 
